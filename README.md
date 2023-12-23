@@ -1,5 +1,9 @@
-# godot4_small-shader-collection
+# Collection of Shadrers
 
+
+## good reads.
+
+ - https://docs.godotengine.org/en/3.4/tutorials/shaders/shader_reference/spatial_shader.html
 
 ## random reads
 
