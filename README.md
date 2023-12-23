@@ -3,7 +3,9 @@
 
 ## good reads.
 
+ - https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/index.html
  - https://docs.godotengine.org/en/3.4/tutorials/shaders/shader_reference/spatial_shader.html
+ - https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/spatial_shader.html
 
 ## random reads
 
