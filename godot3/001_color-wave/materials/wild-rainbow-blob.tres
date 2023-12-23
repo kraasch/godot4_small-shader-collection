@@ -1,20 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=2]
-code = "shader_type spatial;
-
-void vertex() {
-	VERTEX.y += sin(TIME * 5.0 + VERTEX.x * 10.0) * 0.2;
-}
-
-void fragment() {
-	vec3 color;
-	color.r = (sin(TIME * 6.0 + VERTEX.x * 10.0) + 1.0) * 0.5;
-	color.g = (sin(TIME * 7.0 + VERTEX.x * 10.0) + 1.0) * 0.5;
-	color.b = (sin(TIME * 8.0 + VERTEX.x * 10.0) + 1.0) * 0.5;
-	ALBEDO = color;
-}
-"
+[ext_resource path="res://shaders/wild-rainbow-blob.shader" type="Shader" id=1]
 
 [resource]
-shader = SubResource( 2 )
+shader = ExtResource( 1 )
+shader_param/wave_height = 1.0
