@@ -1,6 +1,7 @@
 shader_type spatial;
 
 uniform float wave_height = 0.2;
+uniform sampler2D example_texture : hint_albedo;
 
 void vertex() {
 	VERTEX.y += sin(TIME * 5.0 + VERTEX.x * 10.0) * wave_height;
