@@ -6,8 +6,8 @@ void vertex() {
 
 void fragment() {
 	vec3 color;
-	color.r = (sin(TIME * 5.0) + 1.0) * 0.5;
-	color.g = 0.0;
-	color.b = 0.0;
+	color.r = (sin(TIME * 6.0 + VERTEX.x * 10.0) + 1.0) * 0.5;
+	color.g = (sin(TIME * 7.0 + VERTEX.x * 10.0) + 1.0) * 0.5;
+	color.b = (sin(TIME * 8.0 + VERTEX.x * 10.0) + 1.0) * 0.5;
 	ALBEDO = color;
 }
