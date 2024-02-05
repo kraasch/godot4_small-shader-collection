@@ -1,5 +1,4 @@
-# Collection of Shadrers
-
+# collection of godot shaders
 
 ## good reads
 
