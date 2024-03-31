@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds767iim7rtlh"]
+
+[ext_resource type="Script" path="res://data/src/player.gd" id="1_1e8jj"]
+[ext_resource type="Shader" path="res://shaders/dissolve.gdshader" id="1_ffaw8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvlrj"]
+render_priority = 0
+shader = ExtResource("1_ffaw8")
+shader_parameter/albedo = Color(0.47451, 1, 1, 1)
+shader_parameter/emission_color = Color(0.698039, 0.207843, 0.254902, 1)
+shader_parameter/emission_amount = null
+shader_parameter/burn_size = null
+shader_parameter/dissolve_amount = null
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_so44j"]
+material = SubResource("ShaderMaterial_yvlrj")
+
+[sub_resource type="Environment" id="Environment_fh6qc"]
+ambient_light_color = Color(0.976471, 0.509804, 0.258824, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_usi0v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32v3r"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6f7q"]
+size = Vector3(100, 1, 100)
+
+[node name="Main" type="Node3D"]
+
+[node name="ShaderDisplay" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.78115, -3.59856)
+mesh = SubResource("CapsuleMesh_so44j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fh6qc")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5.73627)
+script = ExtResource("1_1e8jj")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1671, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_usi0v")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_32v3r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_d6f7q")
